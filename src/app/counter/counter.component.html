@@ -1,0 +1,14 @@
+<form class="form">
+    <div class="title">OTP</div>
+    <div class="title">Verification Code</div>
+    <p class="message">We have sent a verification code to your mobile number</p>
+    <div class="inputs">
+      <input #input1 id="input1" type="text" maxlength="1" [value]="generatedOtp?.[0] || ''" (input)="moveFocus(input2)">
+      <input #input2 id="input2" type="text" maxlength="1" [value]="generatedOtp?.[1] || ''" (input)="moveFocus(input3)">
+      <input #input3 id="input3" type="text" maxlength="1" [value]="generatedOtp?.[2] || ''" (input)="moveFocus(input4)">
+      <input #input4 id="input4" type="text" maxlength="1" [value]="generatedOtp?.[3] || ''" (input)="moveFocus(null)">
+    </div>
+    <button class="action" type="button" (click)="generateOtp()">Generate OTP</button>
+  </form>
+  <p *ngIf="otpErrorMessage" class="error">{{ otpErrorMessage }}</p>
+  
